@@ -1,0 +1,18 @@
+<h1 class="text-2xl p-6 bg-gray-800 text-white">List of Products</h1>
+<div class="justify-right p-4 mt-4">
+    <a routerLink = "/admin" class = "bg-gray-400 rounded py-2 px-4 hover:bg-gray-500">Go Back</a>
+</div>
+<div class="w-full flex flex-wrap justify-center mb-10">
+    <div *ngFor= "let product of productlist" class="bg-gray-200  xl:w-1/3 lg:w-1/3 md: w-1/3 sm:w-1/2 se:w-full border-b-4 border-blue-500 p-6 m-2">
+        <img src="{{product.image}}" alt="People" class="w-full object-cover h-32 sm:h-48 md:h-64">
+        <div class="p-4 md:p-6">
+            <a routerLink = "/view-product/{{product._id}}" class="text-blue-500 font-semibold text-xl mb-1 leading-none">{{product.name}}</a>
+            <h3 class="font-semibold mb-2 text-xl leading-tight sm:leading-normal">${{product.price}}</h3>
+
+            <div class="text-sm flex items-center pt-2 font-bold">
+                <p *ngIf="product.popular == true" class="leading-none">Most Popular</p>
+            </div>
+
+        </div>
+    </div>
+</div>
